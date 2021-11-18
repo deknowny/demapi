@@ -1,4 +1,4 @@
-name: GitHub Actions Test
+name: Tests
 
 on:
   push:
@@ -22,3 +22,7 @@ jobs:
           make install-dev
       - name: Run Tests
         run: make test
+      - name: Report coverage
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
