@@ -5,6 +5,24 @@
 ***
 __Documentation__: Later
 ***
+## Overview
+```python
+"""
+Configure request params such as text, color, size etc.
+And then download the image. Optionally save to dick otherwise
+use `image.content` for raw bytes object
+"""
+import demapi
+
+
+conf = demapi.Configure(
+    base_photo=base_path / "example_source.png",
+    title="Demotivator title",
+    explanation="Demotivator explanation (the second line)"
+)
+image = conf.download()
+image.save(base_path / "example.png")
+```
 ## Installation
 Install the latest version through github:
 ```shell
