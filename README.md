@@ -12,4 +12,4 @@ Install the latest version through github:
 python -m pip install https://github.com/deknowny/demapi/archive/main.zip
 ```
 ## Contributing
-Check out ![CONTRIBUTING.md](./CONTRIBUTING.md)
+Check out [CONTRIBUTING.md](./CONTRIBUTING.md)
