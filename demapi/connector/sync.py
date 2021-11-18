@@ -5,7 +5,7 @@ import contextlib
 import dataclasses
 import typing
 
-import requests as requests
+import requests
 
 from demapi.connector.file import File
 

@@ -4,6 +4,7 @@ import re
 import typing
 
 from demapi.configure.payload import RequestPayload
+from demapi.connector.coroutine import BaseAsyncConnector
 from demapi.connector.sync import BaseSyncConnector
 
 
@@ -38,6 +39,18 @@ class Loader:
         )
         image_url = self._fetch_image_url(preview_page)
         image_bytes = connector.get(image_url)
+        return GeneratedImage(image_bytes, image_url)
+
+    async def coroutine_download(
+        self, payload: RequestPayload, connector: BaseAsyncConnector
+    ) -> GeneratedImage:
+        preview_page = await connector.post(
+            self.base_uri + self.preview_page_url,
+            data=payload.data,
+            file=payload.file,
+        )
+        image_url = self._fetch_image_url(preview_page)
+        image_bytes = await connector.get(image_url)
         return GeneratedImage(image_bytes, image_url)
 
     def _fetch_image_url(self, preview_page) -> str:

@@ -11,6 +11,7 @@ from demapi.configure.params import (
     Size,
 )
 from demapi.configure.payload import RequestPayload
+from demapi.connector.coroutine import AiohttpConnector, BaseAsyncConnector
 from demapi.connector.file import File
 from demapi.connector.sync import BaseSyncConnector, RequestsConnector
 from demapi.loader import GeneratedImage, Loader
@@ -53,6 +54,15 @@ class Configure:
             with RequestsConnector.new() as session:
                 return self.loader.download(payload, session)
         return self.loader.download(payload, connector)
+
+    async def coroutine_download(
+        self, connector: typing.Optional[BaseAsyncConnector] = None
+    ) -> GeneratedImage:
+        payload = self._as_request_payload()
+        if connector is None:
+            async with AiohttpConnector.new() as session:
+                return await self.loader.coroutine_download(payload, session)
+        return await self.loader.coroutine_download(payload, connector)
 
     def _as_request_payload(self) -> RequestPayload:
         image_bytes = self._resolve_image()
