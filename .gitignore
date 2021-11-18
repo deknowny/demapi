@@ -1,3 +1,11 @@
+.drafts/
+.DS_Store
+poetry.lock
+.idea/
+.vscode/
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

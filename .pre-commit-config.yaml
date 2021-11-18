@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: formatting
+        language: system
+        name: Formatting
+        entry: make style
+        files: .py
