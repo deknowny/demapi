@@ -1,6 +1,10 @@
 name: GitHub Actions Test
 
-on: [push]
+on:
+  push:
+    branches:
+    - main
+    - dev
 
 jobs:
   Explore-GitHub-Actions:
