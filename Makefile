@@ -7,5 +7,5 @@ install:
 install-dev:
 	poetry install && poetry run pre-commit install
 
-tests:
+test:
 	poetry run pytest tests --cov=demapi --cov-report=html

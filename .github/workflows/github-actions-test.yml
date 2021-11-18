@@ -21,4 +21,4 @@ jobs:
           python -m pip install poetry
           make install-dev
       - name: Run Tests
-        run:
+        run: make test
