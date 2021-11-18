@@ -6,12 +6,10 @@
 __Documentation__: Later
 ***
 ## Overview
-```python
-"""
 Configure request params such as text, color, size etc.
 And then download the image. Optionally save to dick otherwise
 use `image.content` for raw bytes object
-"""
+```python
 import demapi
 
 
