@@ -22,7 +22,7 @@ jobs:
           make install-dev
       - name: Run Tests
         run: make test
-      - name: Report coverage
-        uses: codecov/codecov-action@v2
+      - name:
+        uses: coverallsapp/github-action@v1.1.2
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          github-token: ${{ github.GITHUB_TOKEN }}
