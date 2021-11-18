@@ -9,3 +9,6 @@ install-dev:
 
 test-ci:
 	poetry run coverage run --source=demapi -m pytest tests
+
+test:
+	poetry run pytest tests --cov=demapi --cov-report=html -vvv

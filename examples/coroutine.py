@@ -5,14 +5,14 @@ import demapi
 
 
 async def main():
-    base_path = pathlib.Path("assets")
+    base_path = pathlib.Path("tests") / "assets"
     conf = demapi.Configure(
         base_photo=base_path / "example_source.png",
-        title="ДАВАЙ ДАВАЙ УРААА",
-        explanation="Еще одна бесполезная либа для бесполезного языка",
+        title="test",
+        explanation="test",
     )
     image = await conf.coroutine_download()
-    image.save(base_path / "example.png")
+    image.save(base_path / "example.jpg")
 
 
 if __name__ == "__main__":

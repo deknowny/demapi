@@ -36,12 +36,12 @@ class AiohttpConnector(BaseAsyncConnector):
 
     @classmethod
     @contextlib.asynccontextmanager
-    async def new(cls) -> RequestsConnector:
+    async def new(cls) -> AiohttpConnector:
         session = aiohttp.ClientSession(
             skip_auto_headers={"User-Agent"},
         )
         self = cls(session=session)
-        with session:
+        async with session:
             yield self
 
     async def post(self, url: str, data: dict, file: File) -> bytes:
@@ -52,10 +52,14 @@ class AiohttpConnector(BaseAsyncConnector):
             content_type="multipart/form-data",
         )
         for key, value in data.items():
-            form_data.add_field(name=key, value=value)
-        async with self.session.post(url, data=form_data) as response:
+            form_data.add_field(name=key, value=str(value))
+        async with self.session.post(
+            url, data=form_data, ssl=ssl.SSLContext(protocol=ssl.PROTOCOL_TLS)
+        ) as response:
             return await response.read()
 
     async def get(self, url: str) -> bytes:
-        async with self.session.get(url) as response:
+        async with self.session.get(
+            url, ssl=ssl.SSLContext(protocol=ssl.PROTOCOL_TLS)
+        ) as response:
             return await response.read()
