@@ -21,7 +21,7 @@ jobs:
           python -m pip install poetry
           make install-dev
       - name: Run Tests
-        run: make test
+        run: make test-ci
       - name: Upload coverage data to coveralls.io
         run: poetry run coveralls --service=github
         env:

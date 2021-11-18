@@ -8,4 +8,4 @@ install-dev:
 	poetry install && poetry run pre-commit install
 
 test-ci:
-	poetry run pytest tests
+	poetry run coverage run --source=demapi -m pytest tests
