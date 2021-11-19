@@ -24,6 +24,13 @@ conf = demapi.Configure(
 image = conf.download()
 image.save(base_path / "example.png")
 ```
+
+Or via `await` (based on `aiohttp`):
+
+```python
+image = await conf.coroutine_download()
+```
+
 ## Installation
 Install the latest version through github:
 ```shell
