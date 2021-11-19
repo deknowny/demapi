@@ -9,7 +9,7 @@ __Documentation__: Later
 
 ## Overview
 Configure request params such as text, color, size etc.
-And then download the image. Optionally save to dick otherwise
+And then download the image. Optionally save to disk otherwise
 use `image.content` for raw bytes object
 ```python
 import demapi
