@@ -7,10 +7,12 @@ import ssl
 import typing
 
 import aiohttp
+import certifi
 
 from demapi.connector.file import File
 
-BaseAsyncConnectorType = typing.TypeVar("BaseSyncConnectorType")
+ssl_context = ssl.create_default_context(cafile=certifi.where())
+BaseAsyncConnectorType = typing.TypeVar("BaseAsyncConnectorType")
 
 
 class BaseAsyncConnector(abc.ABC):
@@ -19,15 +21,15 @@ class BaseAsyncConnector(abc.ABC):
     def new(
         cls: typing.Type[BaseAsyncConnectorType],
     ) -> typing.ContextManager[BaseAsyncConnectorType]:
-        pass
+        pass  # pragma: no cover
 
     @abc.abstractmethod
     async def post(self, url: str, data: dict, file: File) -> bytes:
-        pass
+        pass  # pragma: no cover
 
     @abc.abstractmethod
     async def get(self, url: str) -> bytes:
-        pass
+        pass  # pragma: no cover
 
 
 @dataclasses.dataclass
@@ -54,12 +56,10 @@ class AiohttpConnector(BaseAsyncConnector):
         for key, value in data.items():
             form_data.add_field(name=key, value=str(value))
         async with self.session.post(
-            url, data=form_data, ssl=ssl.SSLContext(protocol=ssl.PROTOCOL_TLS)
+            url, data=form_data, ssl=ssl_context
         ) as response:
             return await response.read()
 
     async def get(self, url: str) -> bytes:
-        async with self.session.get(
-            url, ssl=ssl.SSLContext(protocol=ssl.PROTOCOL_TLS)
-        ) as response:
+        async with self.session.get(url, ssl=ssl_context) as response:
             return await response.read()

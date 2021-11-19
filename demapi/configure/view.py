@@ -14,6 +14,7 @@ from demapi.configure.payload import RequestPayload
 from demapi.connector.coroutine import AiohttpConnector, BaseAsyncConnector
 from demapi.connector.file import File
 from demapi.connector.sync import BaseSyncConnector, RequestsConnector
+from demapi.exceptions import InvalidPhotoTypeError
 from demapi.loader import GeneratedImage, Loader
 
 ImageType: "typing.TypeAlias" = typing.Union[
@@ -90,8 +91,7 @@ class Configure:
                 return file.read()
         elif isinstance(self.base_photo, io.BytesIO):
             return self.base_photo.getvalue()
+        elif isinstance(self.base_photo, io.BufferedReader):
+            return self.base_photo.read()
         else:
-            raise TypeError(
-                "Can't recognize a `base_image` with type"
-                f"`{type(self.base_photo)}`"
-            )
+            raise InvalidPhotoTypeError(type(self.base_photo))

@@ -18,15 +18,15 @@ class BaseSyncConnector(abc.ABC):
     def new(
         cls: typing.Type[BaseSyncConnectorType],
     ) -> typing.ContextManager[BaseSyncConnectorType]:
-        pass
+        pass  # pragma: no cover
 
     @abc.abstractmethod
     def post(self, url: str, data: dict, file: File) -> bytes:
-        pass
+        pass  # pragma: no cover
 
     @abc.abstractmethod
     def get(self, url: str) -> bytes:
-        pass
+        pass  # pragma: no cover
 
 
 @dataclasses.dataclass

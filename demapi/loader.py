@@ -1,3 +1,4 @@
+import base64
 import dataclasses
 import os
 import re
@@ -6,6 +7,7 @@ import typing
 from demapi.configure.payload import RequestPayload
 from demapi.connector.coroutine import BaseAsyncConnector
 from demapi.connector.sync import BaseSyncConnector
+from demapi.exceptions import ImageNotFoundError
 
 
 @dataclasses.dataclass
@@ -16,6 +18,9 @@ class GeneratedImage:
     def save(self, fp) -> None:
         with open(fp, "wb") as file:
             file.write(self.content)
+
+    def as_base64(self) -> bytes:
+        return base64.b64encode(self.content)
 
 
 @dataclasses.dataclass
@@ -56,5 +61,5 @@ class Loader:
     def _fetch_image_url(self, preview_page) -> str:
         match_obj = self.image_url_pattern.search(preview_page)
         if match_obj is None:
-            raise ValueError("Something happened wrong. No image URI found")
+            raise ImageNotFoundError()
         return self.base_uri + match_obj.group(0).decode("UTF-8")
