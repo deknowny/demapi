@@ -4,7 +4,6 @@
 ![Example](./assets/example.png)
 ***
 __Documentation__: Later
-***
 
 [![Coverage Status](https://coveralls.io/repos/github/deknowny/demapi/badge.svg?branch=main)](https://coveralls.io/github/deknowny/demapi?branch=main&dummy=unused)
 
