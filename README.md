@@ -6,7 +6,7 @@
 __Documentation__: Later
 ***
 
-[![Coverage Status](https://coveralls.io/repos/github/deknowny/demapi/badge.svg)](https://coveralls.io/github/deknowny/demapi?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/deknowny/demapi/badge.svg?branch=main)](https://coveralls.io/github/deknowny/demapi?branch=main&dummy=unused)
 
 ## Overview
 Configure request params such as text, color, size etc.
@@ -17,12 +17,12 @@ import demapi
 
 
 conf = demapi.Configure(
-    base_photo=base_path / "example_source.png",
+    base_photo="example_source.png",
     title="Demotivator title",
     explanation="Demotivator explanation (the second line)"
 )
 image = conf.download()
-image.save(base_path / "example.png")
+image.save("example.png")
 ```
 
 Or via `await` (based on `aiohttp`):
