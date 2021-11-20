@@ -21,4 +21,5 @@ async def test_simple(assets_path, result_photo_base):
         sync_photo.save(res_path)
         assert res_path.exists()
     finally:
-        res_path.unlink(missing_ok=True)
+        if res_path.exists():
+            res_path.unlink()  # missing_ok for ^3.8
