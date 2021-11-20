@@ -5,7 +5,7 @@
 ***
 __Documentation__: Later
 
-<a href='https://coveralls.io/github/deknowny/demapi?branch=main'><img src='https://coveralls.io/repos/github/deknowny/demapi/badge.svg?branch=main' alt='Coverage Status' /></a>
+[![Coverage Status](https://coveralls.io/repos/github/deknowny/demapi/badge.svg?branch=main)](https://coveralls.io/github/deknowny/demapi?branch=main&dummy=unused)
 
 ## Overview
 Configure request params such as text, color, size etc.
