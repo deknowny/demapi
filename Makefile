@@ -11,4 +11,7 @@ test-ci:
 	poetry run coverage run --source=demapi -m pytest tests
 
 test:
-	poetry run pytest tests --cov=demapi --cov-report=html -vvv
+	poetry run pytest tests --cov=demapi --cov-report=html
+
+serve-cov:
+	poetry run python -m http.server -d htmlcov -b 127.0.0.1
