@@ -10,6 +10,7 @@ authors = ["Yan Kurbatov <deknowny@gmail.com>"]
 license = "GNU General Public License v3.0"
 homepage = "https://github.com/deknowny/demapi"
 documentation = "https://github.com/deknowny/demapi/blob/main/GUIDE.md"
+readme = "README.md"
 keywords = [
     "demotivators", "imgonline", "async", "await", "aio"
 ]
