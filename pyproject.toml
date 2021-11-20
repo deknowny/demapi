@@ -24,6 +24,7 @@ pytest-cov = "^3.0.0"
 coveralls = "^3.3.1"
 coverage = "^6.1.2"
 pytest-asyncio = "^0.16.0"
+sphinx-material = "^0.0.35"
 
 [tool.black]
 line-length = 78
