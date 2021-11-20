@@ -10,7 +10,7 @@ jobs:
     name: Run unit-tests
     strategy:
       matrix:
-        python-version: [ "3.7", "3.8", "3.9", "3.10" ]
+        python-version: [ "3.7", "3.8", "3.9", "3.10", "pypy-3.8", "pypy-3.7"]
         platform: ["ubuntu-latest", "macos-11", "windows-2019"]
 
     runs-on: ${{ matrix.platform }}
