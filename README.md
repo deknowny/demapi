@@ -24,9 +24,9 @@ import demapi
 
 
 conf = demapi.Configure(
-    base_photo="example_source.png",
-    title="Demotivator title",
-    explanation="Demotivator explanation (the second line)"
+    base_photo="example.png",
+    title="The first line",
+    explanation="The second line"
 )
 image = conf.download()
 image.save("example.png")
