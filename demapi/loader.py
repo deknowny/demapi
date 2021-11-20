@@ -31,7 +31,7 @@ class Loader:
     image_url_pattern: typing.Pattern = re.compile(
         rb"download\.php\?"
         b"file=result_img/"
-        rb"imgonline-com-ua-Demotivator-\S+\.jpg"
+        rb"imgonline-com-ua-(?:Dem|M)otivator-\S+\.jpg"
     )
 
     def download(

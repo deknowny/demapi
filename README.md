@@ -3,9 +3,17 @@
 
 ![Example](./assets/example.png)
 ***
-__Documentation__: Later
+__Documentation__: Check out GUIDE.md
 
 [![Coverage Status](https://coveralls.io/repos/github/deknowny/demapi/badge.svg?branch=main)](https://coveralls.io/github/deknowny/demapi?branch=main)
+
+# Features
+* Sync and `async-await` style
+* Customizable titles and explanation (size, colors etc.)
+* Flexible output image (line breaks showed correctly)
+* Not CPU-bound (through unlimited API)
+* Full tests coverage
+* Full typed
 
 ## Overview
 Configure request params such as text, color, size etc.
@@ -30,10 +38,16 @@ Or via `await` (based on `aiohttp`):
 image = await conf.coroutine_download()
 ```
 
-## Installation
-Install the latest version through github:
+# Installation
+Install the latest version through `GitHub`:
 ```shell
 python -m pip install https://github.com/deknowny/demapi/archive/main.zip
 ```
-## Contributing
+Or through `PyPI`
+```shell
+python -m pip install demapi
+```
+
+# Contributing
 Check out [CONTRIBUTING.md](./CONTRIBUTING.md)
+

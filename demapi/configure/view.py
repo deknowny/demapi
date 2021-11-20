@@ -31,18 +31,18 @@ class Configure:
     picture_type: PictureType = PictureType.DEMOTIVATOR
 
     # Text size
-    header_size: Size = Size.AUTO
+    title_size: Size = Size.AUTO
     explanation_size: Size = Size.AUTO
 
     # Text colors
-    header_color: Color = Color.WHITE
+    title_color: Color = Color.WHITE
     explanation_color: Color = Color.WHITE
 
     # Output File Settings
     copy_exif_and_metadata: bool = False
-    image_format: ImageFormat = ImageFormat.JPEG
+    output_image_format: ImageFormat = ImageFormat.JPEG
     jpeg_type: JPEGType = JPEGType.STANDARD
-    jpeg_quality: int = 92  # [0; 1]
+    jpeg_quality: int = 92  # [0; 100]
 
     # UploadingSettings
     loader: Loader = Loader()
@@ -72,13 +72,13 @@ class Configure:
             "efset1": self.picture_type.value,
             "efset2": self.title,
             "efset3": self.explanation,
-            "efset4": self.header_size.value,
-            "efset5": self.header_color.value,
+            "efset4": self.title_size.value,
+            "efset5": self.title_color.value,
             "efset6": self.explanation_size.value,
             "efset7": self.explanation_color.value,
             "jpegtype": self.jpeg_type.value,
             "jpegqual": self.jpeg_quality,
-            "outformat": self.image_format.value,
+            "outformat": self.output_image_format.value,
             "jpegmeta": (not self.copy_exif_and_metadata) + 1,
         }
         return RequestPayload(data=data, file=file)

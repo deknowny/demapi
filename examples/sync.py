@@ -5,15 +5,16 @@ import demapi
 
 
 def main():
-    base_path = pathlib.Path("tests") / "assets"
+    base_path = pathlib.Path("assets") / "py-logo"
     conf = demapi.Configure(
-        base_photo=base_path / "example.png",
-        title="ДАВАЙ ДАВАЙ УРААА",
-        explanation="Еще одна бесполезная либа для бесполезного языка"
+        base_photo=base_path / "py-logo.png",
+        title="Python",
+        explanation="Official Python Logo",
+        title_color=demapi.Color.ORANGE,
+        explanation_color=demapi.Color.RED
     )
     image = conf.download()
-    with open(base_path / "example.base64", "wb") as file:
-        file.write(base64.b64encode(image.content))
+    image.save(base_path / "py-logo-custom-colors.jpg")
 
 
 if __name__ == "__main__":
