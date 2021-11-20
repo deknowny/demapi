@@ -3,7 +3,7 @@
 
 ![Example](./assets/example.png)
 ***
-__Documentation__: Check out GUIDE.md
+__Documentation__: Check out [GUIDE.md](./GUIDE.md)
 
 [![Coverage Status](https://coveralls.io/repos/github/deknowny/demapi/badge.svg?branch=main)](https://coveralls.io/github/deknowny/demapi?branch=main)
 
