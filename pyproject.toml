@@ -20,8 +20,8 @@ classifiers = [
     "Natural Language :: English",
     "Typing :: Typed",
     "Topic :: Utilities",
-    "Python :: Implementation :: CPython",
-    "Python :: Implementation :: PyPy"
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy"
 ]
 
 [tool.poetry.dependencies]
