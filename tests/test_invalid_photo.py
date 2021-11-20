@@ -13,3 +13,12 @@ async def test_another_photo_entity(assets_path):
         )
 
         sync_photo = config.download()
+
+    with pytest.raises(demapi.InvalidPhotoTypeError):
+        config = demapi.Configure(
+            base_photo=123,
+            title="test",
+            explanation="test",
+        )
+
+        sync_photo = config.download()

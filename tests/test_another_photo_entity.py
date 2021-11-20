@@ -1,3 +1,5 @@
+import io
+
 import pytest
 
 import demapi
@@ -9,6 +11,7 @@ async def test_another_photo_entity(assets_path):
     sync_photo2 = photo_path.open("rb")
     sync_photo3 = photo_path.open("rb").read()
     sync_photo4 = str(photo_path)
+    sync_photo5 = io.BytesIO(photo_path.open("rb").read())
 
     async_photo2 = photo_path.open("rb")
     async_photo3 = photo_path.open("rb").read()
@@ -18,6 +21,7 @@ async def test_another_photo_entity(assets_path):
     sync_config2 = demapi.Configure(base_photo=sync_photo2)
     sync_config3 = demapi.Configure(base_photo=sync_photo3)
     sync_config4 = demapi.Configure(base_photo=sync_photo4)
+    sync_config5 = demapi.Configure(base_photo=sync_photo5)
 
     async_config1 = demapi.Configure(base_photo=photo_path)
     async_config2 = demapi.Configure(base_photo=async_photo2)
@@ -29,6 +33,7 @@ async def test_another_photo_entity(assets_path):
         == sync_config2.download().as_base64()
         == sync_config3.download().as_base64()
         == sync_config4.download().as_base64()
+        == sync_config5.download().as_base64()
     )
     assert (
         (await async_config1.coroutine_download()).as_base64()
