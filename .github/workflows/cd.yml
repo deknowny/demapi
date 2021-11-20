@@ -1,3 +1,5 @@
+name: CD
+
 on:
   release:
     # Only use the types keyword to narrow down the activity types that will trigger your workflow.
