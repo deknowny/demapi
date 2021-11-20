@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "demapi"
-version = "0.1.0"
+version = "0.1.1"
 description = "Make customizable demotivators and motivators through imgonline.com.ua API. Supports async-await style"
 authors = ["Yan Kurbatov <deknowny@gmail.com>"]
 license = "GNU General Public License v3.0"
@@ -19,7 +19,9 @@ classifiers = [
     "Intended Audience :: Developers",
     "Natural Language :: English",
     "Typing :: Typed",
-    "Topic :: Utilities"
+    "Topic :: Utilities",
+    "Python :: Implementation :: CPython",
+    "Python :: Implementation :: PyPy"
 ]
 
 [tool.poetry.dependencies]

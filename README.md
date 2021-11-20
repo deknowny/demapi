@@ -1,11 +1,15 @@
 # DemAPI
 > Make customizable demotivators and motivators through imgonline.com.ua API. Supports async-await style
 
-![Example](./assets/example.png)
+![Example](https://raw.githubusercontent.com/deknowny/demapi/main/assets/example.png)
 ***
-__Documentation__: Check out [GUIDE.md](./GUIDE.md)
+__Documentation__: Check out [GUIDE.md](https://github.com/deknowny/demapi/blob/main/GUIDE.md)
 
 [![Coverage Status](https://coveralls.io/repos/github/deknowny/demapi/badge.svg?branch=main)](https://coveralls.io/github/deknowny/demapi?branch=main)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/demapi)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/demapi)
+![PyPI](https://img.shields.io/pypi/v/demapi)
+![PyPI - Implementation](https://img.shields.io/pypi/implementation/demapi)
 
 # Features
 * Sync and `async-await` style
