@@ -1,19 +1,20 @@
 name: CD
 
+# Deploy when new tag is pushed
 on:
-  release:
-    types: [created]
-  workflow_run:
-    workflows: ["CI"]
-    types:
-      - completed
+  push:
+    tags:
+    - "*"
 
 jobs:
   pypi:
     name: Deploy to PyPI
     runs-on: ubuntu-latest
     steps:
+      # Checkout to the repo
       - uses: actions/checkout@v2
+
+      # Correctly install the python
       - uses: actions/setup-python@v2
         with:
           python-version: 3.8
@@ -22,4 +23,3 @@ jobs:
           python -m pip install poetry
       - name: Deploy to PyPI
         run: poetry publish --build -u Rhinik -p ${{ secrets.PYPI_PASSWORD }}
-
