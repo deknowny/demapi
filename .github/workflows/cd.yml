@@ -22,4 +22,6 @@ jobs:
         run: |
           python -m pip install poetry
       - name: Deploy to PyPI
-        run: poetry publish --build -u Rhinik -p ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }} --local
+          poetry publish --build
