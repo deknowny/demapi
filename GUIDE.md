@@ -1,7 +1,7 @@
 # Usage guide
 `demapi` uses https://imgonline.com.ua API and so you can use many configuration settings to build your demotivators. In this guide I show you how different settings change the output image. For examples will be used official Python logo
 
-![Python Logo](./assets/py_logo/py-logo.png)
+![Python Logo](./assets/py-logo/py-logo.png)
 ***
 ## Image format
 You can pass JPEG/PNG or other formats (not tested more) with such types:
