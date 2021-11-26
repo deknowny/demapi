@@ -17,10 +17,11 @@ BaseAsyncConnectorType = typing.TypeVar("BaseAsyncConnectorType")
 
 class BaseAsyncConnector(abc.ABC):
     @classmethod
+    @contextlib.asynccontextmanager
     @abc.abstractmethod
     def new(
         cls: typing.Type[BaseAsyncConnectorType],
-    ) -> typing.ContextManager[BaseAsyncConnectorType]:
+    ) -> typing.AsyncIterator[BaseAsyncConnectorType]:
         pass  # pragma: no cover
 
     @abc.abstractmethod
@@ -38,7 +39,7 @@ class AiohttpConnector(BaseAsyncConnector):
 
     @classmethod
     @contextlib.asynccontextmanager
-    async def new(cls) -> AiohttpConnector:
+    async def new(cls) -> typing.AsyncIterator[AiohttpConnector]:
         session = aiohttp.ClientSession(
             skip_auto_headers={"User-Agent"},
         )

@@ -17,9 +17,7 @@ from demapi.connector.sync import BaseSyncConnector, RequestsConnector
 from demapi.exceptions import InvalidPhotoTypeError
 from demapi.loader import GeneratedImage, Loader
 
-ImageType: "typing.TypeAlias" = typing.Union[
-    str, bytes, pathlib.Path, io.BytesIO
-]
+ImageType = typing.Union[str, bytes, pathlib.Path, io.BytesIO]
 
 
 @dataclasses.dataclass

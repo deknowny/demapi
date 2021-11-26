@@ -14,10 +14,11 @@ BaseSyncConnectorType = typing.TypeVar("BaseSyncConnectorType")
 
 class BaseSyncConnector(abc.ABC):
     @classmethod
+    @contextlib.contextmanager
     @abc.abstractmethod
     def new(
         cls: typing.Type[BaseSyncConnectorType],
-    ) -> typing.ContextManager[BaseSyncConnectorType]:
+    ) -> typing.Iterator[BaseSyncConnectorType]:
         pass  # pragma: no cover
 
     @abc.abstractmethod
@@ -35,7 +36,7 @@ class RequestsConnector(BaseSyncConnector):
 
     @classmethod
     @contextlib.contextmanager
-    def new(cls) -> RequestsConnector:
+    def new(cls) -> typing.Iterator[RequestsConnector]:
         session = requests.Session()
         self = cls(session=session)
         with session:
