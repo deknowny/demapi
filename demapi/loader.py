@@ -18,7 +18,7 @@ class GeneratedImage:
     def save(
         self,
         fp: typing.Union[
-            str, bytes, os.PathLike[str], os.PathLike[bytes], int
+            str, bytes, "os.PathLike[str]", "os.PathLike[bytes]", int
         ],
     ) -> None:
         with open(fp, "wb") as file:
