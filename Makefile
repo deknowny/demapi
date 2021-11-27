@@ -15,3 +15,6 @@ test:
 
 serve-cov:
 	poetry run python -m http.server -d htmlcov -b 127.0.0.1
+
+check:
+	poetry run mypy --strict

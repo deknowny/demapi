@@ -9,20 +9,18 @@ import requests
 
 from demapi.connector.file import File
 
-BaseSyncConnectorType = typing.TypeVar("BaseSyncConnectorType")
-
 
 class BaseSyncConnector(abc.ABC):
     @classmethod
     @contextlib.contextmanager
     @abc.abstractmethod
-    def new(
-        cls: typing.Type[BaseSyncConnectorType],
-    ) -> typing.Iterator[BaseSyncConnectorType]:
+    def new(cls) -> typing.Iterator[BaseSyncConnector]:
         pass  # pragma: no cover
 
     @abc.abstractmethod
-    def post(self, url: str, data: dict, file: File) -> bytes:
+    def post(
+        self, url: str, data: typing.Dict[str, typing.Any], file: File
+    ) -> bytes:
         pass  # pragma: no cover
 
     @abc.abstractmethod
@@ -42,7 +40,9 @@ class RequestsConnector(BaseSyncConnector):
         with session:
             yield self
 
-    def post(self, url: str, data: dict, file: File) -> bytes:
+    def post(
+        self, url: str, data: typing.Dict[str, typing.Any], file: File
+    ) -> bytes:
         file_obj = {file.multipart_name: (file.name, file.content)}
         return self.session.post(
             url,

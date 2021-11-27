@@ -15,7 +15,12 @@ class GeneratedImage:
     content: bytes
     url: str
 
-    def save(self, fp) -> None:
+    def save(
+        self,
+        fp: typing.Union[
+            str, bytes, os.PathLike[str], os.PathLike[bytes], int
+        ],
+    ) -> None:
         with open(fp, "wb") as file:
             file.write(self.content)
 
@@ -28,7 +33,7 @@ class Loader:
     response_type: typing.Type[GeneratedImage] = GeneratedImage
     base_uri: str = "https://www.imgonline.com.ua/"
     preview_page_url: str = "demotivational-poster-result.php"
-    image_url_pattern: typing.Pattern = re.compile(
+    image_url_pattern: typing.Pattern[bytes] = re.compile(
         rb"download\.php\?"
         b"file=result_img/"
         rb"imgonline-com-ua-(?:Dem|M)otivator-\S+\.jpg"
@@ -58,7 +63,7 @@ class Loader:
         image_bytes = await connector.get(image_url)
         return GeneratedImage(image_bytes, image_url)
 
-    def _fetch_image_url(self, preview_page) -> str:
+    def _fetch_image_url(self, preview_page: bytes) -> str:
         match_obj = self.image_url_pattern.search(preview_page)
         if match_obj is None:
             raise ImageNotFoundError()
