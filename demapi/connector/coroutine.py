@@ -60,8 +60,8 @@ class AiohttpConnector(BaseAsyncConnector):
         async with self.session.post(
             url, data=form_data, ssl=ssl_context
         ) as response:
-            return typing.cast(bytes, await response.read())
+            return await response.read()
 
     async def get(self, url: str) -> bytes:
         async with self.session.get(url, ssl=ssl_context) as response:
-            return typing.cast(bytes, await response.read())
+            return await response.read()
