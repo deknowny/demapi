@@ -6,6 +6,21 @@ on:
       - "*"
 
 jobs:
+  static_checker:
+    runs-on: ubuntu-20.04
+    name: Run static analizer
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Installing the current project in dev mode
+        run: |
+          python -m pip install poetry
+          make install-dev
+      - name: Run mypy
+        run: make check
+
   tests:
     name: Run unit-tests
     strategy:
