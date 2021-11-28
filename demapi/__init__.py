@@ -12,3 +12,5 @@ from demapi.connector.file import File
 from demapi.connector.sync import BaseSyncConnector, RequestsConnector
 from demapi.exceptions import ImageNotFoundError, InvalidPhotoTypeError
 from demapi.loader import GeneratedImage, Loader
+
+__version__ = "0.1.5"
