@@ -4,8 +4,17 @@ style:
 install:
 	poetry install --no-dev
 
-install-dev:
-	poetry install && poetry run pre-commit install
+install-all:
+	poetry install -E all && poetry run pre-commit install
+
+install-check:
+	poetry install -E check && poetry run pre-commit install
+
+install-test:
+	poetry install -E test && poetry run pre-commit install
+
+install-style:
+	poetry install -E style && poetry run pre-commit install
 
 test-ci:
 	poetry run coverage run --source=demapi -m pytest tests
