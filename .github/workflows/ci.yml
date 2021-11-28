@@ -52,7 +52,7 @@ jobs:
     name: Indicate completion to coveralls.io
     needs: tests
     runs-on: ubuntu-latest
-    container: python:3-slim
+    container: python:3.8
     steps:
       - name: Finished
         run: |
