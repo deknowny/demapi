@@ -5,7 +5,16 @@ install:
 	poetry install --no-dev
 
 install-dev:
-	poetry install && poetry run pre-commit install
+	poetry install -E check -E test -E style && poetry run pre-commit install
+
+install-check:
+	poetry install -E check
+
+install-test:
+	poetry install -E test
+
+install-style:
+	poetry install -E style && poetry run pre-commit install
 
 test-ci:
 	poetry run coverage run --source=demapi -m pytest tests

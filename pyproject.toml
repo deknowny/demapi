@@ -30,18 +30,23 @@ requests = "^2.26.0"
 aiohttp = "^3.8.1"
 certifi = "^2021.10.8"
 
-[tool.poetry.dev-dependencies]
-black = "^21.11b1"
-isort = "^5.10.1"
-pre-commit = "^2.15.0"
-pytest-cov = "^3.0.0"
-coveralls = "^3.3.1"
-coverage = "^6.1.2"
-pytest-asyncio = "^0.16.0"
-pytest = "^6.2.5"
-mypy = "^0.910"
-types-requests = "^2.26.1"
-types-certifi = "^2021.10.8"
+# -- dev --
+black = {optional = true, version="^21.11b1"}
+isort = {optional = true, version="^5.10.1"}
+pre-commit = {optional = true, version="^2.15.0"}
+pytest-cov = {optional = true, version="^3.0.0"}
+coveralls = {optional = true, version="^3.3.1"}
+coverage = {optional = true, version="^6.1.2"}
+pytest-asyncio = {optional = true, version="^0.16.0"}
+pytest = {optional = true, version="^6.2.5"}
+mypy = {optional = true, version="^0.910"}
+types-requests = {optional = true, version="^2.26.1"}
+types-certifi = {optional = true, version="^2021.10.8"}
+
+[tool.poetry.extras]
+style = ["black", "isort", "pre-commit"]
+test = ["pytest", "pytest-asyncio", "pytest-cov", "coveralls", "coverage"]
+check = ["mypy", "types-requests", "types-certifi"]
 
 [tool.black]
 line-length = 78
