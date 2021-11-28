@@ -8,10 +8,10 @@ install-all:
 	poetry install -E all && poetry run pre-commit install
 
 install-check:
-	poetry install -E check && poetry run pre-commit install
+	poetry install -E check
 
 install-test:
-	poetry install -E test && poetry run pre-commit install
+	poetry install -E test
 
 install-style:
 	poetry install -E style && poetry run pre-commit install
