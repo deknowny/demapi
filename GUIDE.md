@@ -79,7 +79,8 @@ import demapi
 demapi.Configure(
     image,
     title="Python",
-    explanation="Official Python Logo"
+    explanation="Official Python Logo",
+    picture_type=demapi.PictureType.MOTIVATOR
 )
 ```
 ![Simple Demotivator](./assets/py-logo/py-logo-motivator.jpg)
