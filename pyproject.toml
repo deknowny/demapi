@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "demapi"
-version = "0.1.5"
+version = "0.1.6"
 description = "Make customizable demotivators and motivators through imgonline.com.ua API. Supports async-await style"
 authors = ["Yan Kurbatov <deknowny@gmail.com>"]
 license = "MIT"
@@ -30,7 +30,13 @@ requests = "^2.26.0"
 aiohttp = "^3.8.1"
 certifi = "^2021.10.8"
 
-# -- dev --
+# --dev --
+# Place dev dependencies here bacause
+# Dev dependencies does not support `extras`.
+# So if you use `mypy` as dev dependencies
+# And run tests on `pypy`, you will see an error.
+# That means some libs are not supported on some python
+# Implementations
 black = {optional = true, version="^21.11b1"}
 isort = {optional = true, version="^5.10.1"}
 pre-commit = {optional = true, version="^2.15.0"}
