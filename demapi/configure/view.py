@@ -68,8 +68,8 @@ class Configure:
         file = File(content=image_bytes)
         data = {
             "efset1": self.picture_type.value,
-            "efset2": self.title,
-            "efset3": self.explanation,
+            "efset2": self.title or "",
+            "efset3": self.explanation or "",
             "efset4": self.title_size.value,
             "efset5": self.title_color.value,
             "efset6": self.explanation_size.value,
